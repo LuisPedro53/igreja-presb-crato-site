@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import ScrollToTopOnNavigate from './components/ScrollToTop/ScrollToTopOnNavigate';
 import HomePage from './pages/HomePage';
 import DizimosOfertasPage from './pages/DizimosOfertasPage';
 import AgendaPage from './pages/AgendaPage';
@@ -13,6 +14,7 @@ import './App.css';
 function App() {
   return (
     <Router>
+      <ScrollToTopOnNavigate />
       <div className='App'>
         <Header />
         <main>
