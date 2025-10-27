@@ -60,6 +60,7 @@
   font-family: var(--font-primary);
   backdrop-filter: blur(10px);
   box-shadow: var(--shadow-xl);
+  width: 100%;
 }
 
 .announcement-content {
@@ -208,10 +209,12 @@
 
   .slider-control.prev {
     left: var(--spacing-md);
+    margin-top: 1rem;
   }
 
   .slider-control.next {
     right: var(--spacing-md);
+    margin-top: 1rem;
   }
 }
 
@@ -231,6 +234,7 @@
 
   .announcement-content h2 {
     font-size: var(--font-size-xl);
+    margin-top: 2.5rem;
   }
 
   .announcement-content p {
