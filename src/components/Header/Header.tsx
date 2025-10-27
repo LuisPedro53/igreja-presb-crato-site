@@ -26,9 +26,11 @@ const Header = () => {
           {/* Logo */}
           <div className='header-logo'>
             <Link to='/' onClick={closeMenu}>
-              <div className='logo-placeholder'>
-                <span>IPC</span>
-              </div>
+              <img
+                src='/logo-saca.png'
+                alt='Igreja Presbiteriana do Crato'
+                className='logo-image'
+              />
               <div className='logo-text'>
                 <h1>Igreja Presbiteriana</h1>
                 <p>do Crato</p>

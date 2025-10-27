@@ -85,6 +85,12 @@ body {
   overflow-x: hidden;
 }
 
+/* Parágrafos justificados */
+p {
+  text-align: justify;
+  line-height: 1.6;
+}
+
 /* Headings */
 h1,
 h2,

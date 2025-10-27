@@ -90,12 +90,16 @@
   color: var(--bg);
   margin-top: 2px;
   flex-shrink: 0;
+  min-width: 20px;
 }
 
+.footer-contact li span,
 .footer-contact li a {
   color: rgba(255, 255, 255, 0.9);
   text-decoration: none;
   transition: color var(--transition-base);
+  flex: 1;
+  word-break: break-word;
 }
 
 .footer-contact li a:hover {
