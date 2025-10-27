@@ -1,0 +1,546 @@
+/* ===== SOBRE PAGE ===== */
+
+.sobre-page {
+  min-height: 100vh;
+}
+
+/* Hero Section */
+.sobre-hero {
+  background: linear-gradient(135deg, var(--text) 0%, #2d5a47 100%);
+  color: white;
+  padding: 80px 20px 60px;
+  text-align: center;
+  margin-top: 60px;
+}
+
+.sobre-hero .hero-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.sobre-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.sobre-hero .hero-subtitle {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  opacity: 0.95;
+}
+
+/* Mission Section */
+.mission-section {
+  padding: 60px 20px;
+  background: white;
+}
+
+.mission-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.mission-card {
+  background: white;
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.mission-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.mission-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 25px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: white;
+}
+
+.mission-icon.vision {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.mission-icon.mission {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.mission-icon.values {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.mission-card h2 {
+  color: var(--text);
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.mission-card p {
+  color: #555;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.mission-card ul {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+.mission-card li {
+  color: #555;
+  padding: 8px 0 8px 25px;
+  position: relative;
+  line-height: 1.6;
+}
+
+.mission-card li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+/* History Section */
+.history-section {
+  background: var(--color-accent);
+  padding: 60px 20px;
+  margin: 0;
+}
+
+.section-title {
+  color: var(--text);
+  font-size: 2.8rem;
+  text-align: center;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.section-subtitle {
+  text-align: center;
+  color: #666;
+  font-size: 1.15rem;
+  margin-bottom: 50px;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.timeline {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  padding: 20px 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--text);
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 50px;
+  position: relative;
+}
+
+.timeline-item:nth-child(odd) {
+  flex-direction: row;
+}
+
+.timeline-item:nth-child(even) {
+  flex-direction: row-reverse;
+}
+
+.timeline-marker {
+  width: 20px;
+  height: 20px;
+  background: var(--text);
+  border: 4px solid white;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  box-shadow: 0 0 0 4px rgba(68, 145, 111, 0.2);
+}
+
+.timeline-content {
+  width: calc(50% - 40px);
+  background: white;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+  margin-right: auto;
+  margin-left: 40px;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+  margin-left: auto;
+  margin-right: 40px;
+  text-align: right;
+}
+
+.timeline-content:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 25px rgba(68, 145, 111, 0.15);
+}
+
+.timeline-year {
+  display: inline-block;
+  background: var(--text);
+  color: white;
+  padding: 6px 15px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+}
+
+.timeline-content h3 {
+  color: var(--text);
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.timeline-content p {
+  color: #666;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+/* Beliefs Section */
+.beliefs-section {
+  padding: 60px 20px;
+  background: white;
+}
+
+.beliefs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto 50px;
+}
+
+.belief-card {
+  background: var(--color-accent);
+  padding: 30px;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.belief-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.belief-icon {
+  font-size: 3rem;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+
+.belief-card h3 {
+  color: var(--text);
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.belief-card p {
+  color: #555;
+  line-height: 1.7;
+  font-size: 0.98rem;
+}
+
+.confession-note {
+  max-width: 900px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, var(--text) 0%, #2d5a47 100%);
+  color: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 6px 25px rgba(68, 145, 111, 0.2);
+}
+
+.confession-note p {
+  margin-bottom: 20px;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+.confession-note strong {
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+
+.confession-note ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.confession-note li {
+  padding: 10px 0 10px 30px;
+  position: relative;
+  font-size: 1.05rem;
+}
+
+.confession-note li::before {
+  content: '📖';
+  position: absolute;
+  left: 0;
+  font-size: 1.2rem;
+}
+
+.note-footer {
+  font-style: italic;
+  opacity: 0.9;
+  margin-bottom: 0 !important;
+}
+
+/* Affiliations Section */
+.affiliations-section {
+  background: var(--color-accent);
+  padding: 60px 20px;
+  margin: 0;
+}
+
+.affiliations-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.affiliation-card {
+  background: white;
+  padding: 35px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.affiliation-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.affiliation-card h3 {
+  color: var(--text);
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.affiliation-card p {
+  color: #555;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+/* CTA Section */
+.cta-section {
+  padding: 60px 20px;
+  background: white;
+}
+
+.cta-card {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 50px;
+  background: linear-gradient(135deg, var(--text) 0%, #2d5a47 100%);
+  color: white;
+  border-radius: 12px;
+  box-shadow: 0 6px 30px rgba(68, 145, 111, 0.2);
+}
+
+.cta-card h2 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.cta-card > p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 35px;
+  opacity: 0.95;
+}
+
+.cta-info {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-bottom: 35px;
+  flex-wrap: wrap;
+}
+
+.cta-info-item strong {
+  display: block;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.cta-info-item p {
+  font-size: 1.05rem;
+  margin-bottom: 5px;
+  opacity: 0.95;
+}
+
+.cta-button {
+  display: inline-block;
+  background: white;
+  color: var(--text);
+  padding: 18px 50px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background: #f0f0f0;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .timeline::before {
+    left: 30px;
+  }
+
+  .timeline-item,
+  .timeline-item:nth-child(even) {
+    flex-direction: row;
+  }
+
+  .timeline-marker {
+    left: 30px;
+  }
+
+  .timeline-content,
+  .timeline-item:nth-child(even) .timeline-content {
+    width: calc(100% - 80px);
+    margin-left: 80px !important;
+    margin-right: 0 !important;
+    text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+  .sobre-hero {
+    padding: 60px 15px 40px;
+  }
+
+  .sobre-hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .mission-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+  }
+
+  .beliefs-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .confession-note {
+    padding: 30px 25px;
+  }
+
+  .affiliations-content {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-card {
+    padding: 40px 25px;
+  }
+
+  .cta-info {
+    flex-direction: column;
+    gap: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sobre-hero .hero-icon {
+    font-size: 3rem;
+  }
+
+  .sobre-hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .mission-card {
+    padding: 30px 20px;
+  }
+
+  .mission-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 2rem;
+  }
+
+  .timeline-content {
+    padding: 20px;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .cta-card {
+    padding: 30px 20px;
+  }
+
+  .cta-card h2 {
+    font-size: 2rem;
+  }
+
+  .cta-button {
+    padding: 15px 40px;
+    font-size: 1.1rem;
+  }
+}

@@ -1,0 +1,401 @@
+/* ===== DÍZIMOS E OFERTAS PAGE ===== */
+
+.dizimos-ofertas-page {
+  min-height: 100vh;
+}
+
+/* Hero Section */
+.dizimos-hero {
+  background: linear-gradient(135deg, var(--text) 0%, #2d5a47 100%);
+  color: white;
+  padding: 80px 20px 60px;
+  text-align: center;
+  margin-top: 60px;
+}
+
+.dizimos-hero .hero-icon {
+  font-size: 4rem;
+  margin-bottom: 20px;
+  color: rgba(255, 255, 255, 0.9);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.dizimos-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.dizimos-hero .hero-subtitle {
+  font-size: 1.3rem;
+  max-width: 800px;
+  margin: 0 auto 15px;
+  font-style: italic;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+.dizimos-hero .verse-reference {
+  font-size: 1rem;
+  opacity: 0.8;
+  font-weight: 600;
+}
+
+/* Explanation Section */
+.explanation-card {
+  background: white;
+  padding: 50px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.explanation-card h2 {
+  color: var(--text);
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.explanation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.explanation-item {
+  padding: 30px;
+  background: var(--color-accent);
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.explanation-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(68, 145, 111, 0.15);
+}
+
+.explanation-item h3 {
+  color: var(--text);
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+}
+
+.explanation-item p {
+  color: #555;
+  line-height: 1.7;
+}
+
+/* Payment Methods Section */
+.payment-methods {
+  background: var(--color-accent);
+  padding: 60px 20px;
+  margin: 0;
+  max-width: 100%;
+}
+
+.section-title {
+  color: var(--text);
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 50px;
+  font-weight: 700;
+}
+
+.payment-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.payment-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.payment-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.payment-card.highlight {
+  border: 3px solid var(--text);
+  position: relative;
+}
+
+.payment-card.highlight::before {
+  content: '⭐ RECOMENDADO';
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: var(--text);
+  color: white;
+  padding: 5px 15px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-bottom-left-radius: 8px;
+}
+
+.card-header {
+  background: var(--text);
+  color: white;
+  padding: 25px;
+  text-align: center;
+}
+
+.card-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.card-header h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.card-body {
+  padding: 30px;
+}
+
+.bank-info p {
+  margin-bottom: 12px;
+  color: #333;
+  font-size: 1rem;
+}
+
+.bank-info strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* PIX Info */
+.pix-info {
+  text-align: center;
+}
+
+.pix-label {
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.pix-key {
+  font-family: 'Courier New', monospace;
+  font-size: 1.2rem;
+  background: var(--color-accent);
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  color: var(--text);
+  font-weight: 700;
+}
+
+.btn-copy {
+  background: var(--text);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 30px;
+}
+
+.btn-copy:hover {
+  background: #2d5a47;
+  transform: scale(1.05);
+}
+
+.qrcode-placeholder {
+  background: var(--color-accent);
+  padding: 30px;
+  border-radius: 8px;
+  color: var(--text);
+}
+
+.qrcode-placeholder svg {
+  opacity: 0.4;
+  margin-bottom: 10px;
+}
+
+.qrcode-placeholder p {
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.qrcode-placeholder small {
+  color: #888;
+  font-size: 0.85rem;
+}
+
+/* Service Times */
+.service-times {
+  background: var(--color-accent);
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.service-times p {
+  margin-bottom: 8px;
+  color: #333;
+  font-size: 1rem;
+}
+
+/* Verses Section */
+.verses-section {
+  padding: 60px 20px;
+}
+
+.verses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.verse-card {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  border-left: 4px solid var(--text);
+  box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.verse-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 25px rgba(68, 145, 111, 0.15);
+}
+
+.verse-text {
+  font-style: italic;
+  color: #444;
+  line-height: 1.8;
+  margin-bottom: 15px;
+  font-size: 1rem;
+}
+
+.verse-reference {
+  text-align: right;
+  color: var(--text);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+/* Transparency Section */
+.transparency {
+  padding: 40px 20px;
+  background: var(--color-accent);
+  margin: 0;
+  max-width: 100%;
+}
+
+.transparency-card {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  max-width: 900px;
+  margin: 0 auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.transparency-card h2 {
+  color: var(--text);
+  font-size: 2rem;
+  margin-bottom: 25px;
+}
+
+.transparency-card p {
+  color: #555;
+  line-height: 1.8;
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .payment-cards {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .dizimos-hero {
+    padding: 60px 15px 40px;
+  }
+
+  .dizimos-hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .dizimos-hero .hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .explanation-card {
+    padding: 30px 20px;
+  }
+
+  .explanation-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .payment-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .verses-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .transparency-card {
+    padding: 30px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dizimos-hero .hero-icon {
+    font-size: 3rem;
+  }
+
+  .dizimos-hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .dizimos-hero .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .card-body {
+    padding: 20px;
+  }
+
+  .pix-key {
+    font-size: 1rem;
+    padding: 12px;
+  }
+}

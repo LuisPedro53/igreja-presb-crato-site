@@ -1,0 +1,156 @@
+.schedule-section {
+  background-color: var(--bg);
+}
+
+.section-subtitle {
+  text-align: center;
+  color: var(--text);
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-3xl);
+  opacity: 0.8;
+}
+
+.schedule-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-3xl);
+}
+
+.schedule-card {
+  background: var(--bg);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-2xl);
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition-base);
+  border: 2px solid transparent;
+  text-align: center;
+}
+
+.schedule-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-xl);
+  border-color: var(--color-primary);
+}
+
+.schedule-card.morning {
+  border-top: 4px solid #ffa726;
+}
+
+.schedule-card.evening {
+  border-top: 4px solid #5c6bc0;
+}
+
+.schedule-card.prayer {
+  border-top: 4px solid var(--color-primary);
+}
+
+.schedule-icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto var(--spacing-lg);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary-light) 0%,
+    var(--color-primary) 100%
+  );
+  border-radius: var(--border-radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bg);
+  font-size: var(--font-size-2xl);
+  box-shadow: var(--shadow-md);
+}
+
+.schedule-card.morning .schedule-icon {
+  background: linear-gradient(135deg, #ffd54f 0%, #ffa726 100%);
+}
+
+.schedule-card.evening .schedule-icon {
+  background: linear-gradient(135deg, #7986cb 0%, #5c6bc0 100%);
+}
+
+.schedule-card h3 {
+  color: var(--text);
+  font-size: var(--font-size-xl);
+  margin-bottom: var(--spacing-md);
+  font-weight: 600;
+}
+
+.schedule-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  color: var(--text);
+  font-size: var(--font-size-base);
+  opacity: 0.8;
+}
+
+.schedule-info svg {
+  color: var(--color-primary);
+}
+
+.schedule-note {
+  background: linear-gradient(
+    135deg,
+    rgba(68, 145, 111, 0.05) 0%,
+    rgba(68, 145, 111, 0.1) 100%
+  );
+  border-left: 4px solid var(--color-primary);
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-xl);
+  text-align: center;
+}
+
+.schedule-note p {
+  color: var(--text);
+  margin: var(--spacing-sm) 0;
+  font-size: var(--font-size-base);
+}
+
+.schedule-note strong {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .schedule-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .schedule-card {
+    padding: var(--spacing-xl);
+  }
+
+  .schedule-icon {
+    width: 60px;
+    height: 60px;
+    font-size: var(--font-size-xl);
+  }
+
+  .schedule-card h3 {
+    font-size: var(--font-size-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .section-subtitle {
+    font-size: var(--font-size-base);
+  }
+
+  .schedule-card {
+    padding: var(--spacing-lg);
+  }
+
+  .schedule-note {
+    padding: var(--spacing-lg);
+  }
+
+  .schedule-note p {
+    font-size: var(--font-size-sm);
+  }
+}
