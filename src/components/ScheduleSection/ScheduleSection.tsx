@@ -1,4 +1,5 @@
 import { FaClock, FaSun, FaMoon, FaPray, FaBook } from 'react-icons/fa';
+import churchData from '../../data';
 import './ScheduleSection.css';
 
 interface Schedule {
@@ -13,33 +14,33 @@ interface Schedule {
 const schedules: Schedule[] = [
   {
     id: 1,
-    title: 'Culto Dominical (Manhã)',
+    title: churchData.schedule.sunday.morning.name,
     day: 'Domingo',
-    time: '09:00',
+    time: churchData.schedule.sunday.morning.time,
     icon: <FaSun />,
     type: 'morning',
   },
   {
     id: 2,
-    title: 'Escola Bíblica Dominical',
+    title: churchData.schedule.sunday.ebd.name,
     day: 'Domingo',
-    time: '09:00',
+    time: churchData.schedule.sunday.ebd.time,
     icon: <FaBook />,
     type: 'morning',
   },
   {
     id: 3,
-    title: 'Culto Dominical (Noite)',
+    title: churchData.schedule.sunday.evening.name,
     day: 'Domingo',
-    time: '19:00',
+    time: churchData.schedule.sunday.evening.time,
     icon: <FaMoon />,
     type: 'evening',
   },
   {
     id: 4,
-    title: 'Culto de Oração',
+    title: churchData.schedule.wednesday.name,
     day: 'Quarta-feira',
-    time: '19:30',
+    time: churchData.schedule.wednesday.time,
     icon: <FaPray />,
     type: 'prayer',
   },
@@ -71,7 +72,7 @@ const ScheduleSection = () => {
 
         <div className='schedule-note'>
           <p>
-            📍 <strong>Endereço:</strong> Rua Exemplo, 123 - Centro, Crato - CE
+            📍 <strong>Endereço:</strong> {churchData.address.full}
           </p>
           <p>
             💡 <strong>Dica:</strong> Chegue alguns minutos antes para garantir

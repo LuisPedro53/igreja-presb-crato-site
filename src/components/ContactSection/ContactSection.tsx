@@ -5,6 +5,7 @@ import {
   FaEnvelope,
   FaPaperPlane,
 } from 'react-icons/fa';
+import churchData from '../../data';
 import './ContactSection.css';
 
 interface FormData {
@@ -143,9 +144,11 @@ const ContactSection = () => {
                 <div className='contact-text'>
                   <h4>Endereço</h4>
                   <p>
-                    Rua Exemplo, 123 - Centro
+                    {churchData.address.street} -{' '}
+                    {churchData.address.neighborhood}
                     <br />
-                    Crato - CE, 63100-000
+                    {churchData.address.city} - {churchData.address.state},{' '}
+                    {churchData.address.zipCode}
                   </p>
                 </div>
               </div>
@@ -155,12 +158,22 @@ const ContactSection = () => {
                   <FaPhone />
                 </div>
                 <div className='contact-text'>
-                  <h4>Telefone</h4>
+                  <h4>Contatos</h4>
                   <p>
-                    <a href='tel:+5588999999999'>(88) 99999-9999</a>
+                    <strong>{churchData.contact.pastor.title}:</strong>
+                    <br />
+                    <a href={`tel:+${churchData.contact.pastor.phoneRaw}`}>
+                      {churchData.contact.pastor.phone}
+                    </a>
                   </p>
                   <p>
-                    <a href='tel:+558833333333'>(88) 3333-3333</a>
+                    <strong>{churchData.contact.vicePresident.title}:</strong>
+                    <br />
+                    <a
+                      href={`tel:+${churchData.contact.vicePresident.phoneRaw}`}
+                    >
+                      {churchData.contact.vicePresident.phone}
+                    </a>
                   </p>
                 </div>
               </div>
@@ -172,19 +185,26 @@ const ContactSection = () => {
                 <div className='contact-text'>
                   <h4>Email</h4>
                   <p>
-                    <a href='mailto:contato@ipcrato.com.br'>
-                      contato@ipcrato.com.br
+                    <a href={`mailto:${churchData.contact.email}`}>
+                      {churchData.contact.email}
                     </a>
                   </p>
                 </div>
               </div>
             </div>
 
-            {/* Placeholder para mapa */}
-            <div className='map-placeholder'>
-              MAPA
-              <br />
-              <span>Google Maps</span>
+            {/* Mapa do Google */}
+            <div className='map-container'>
+              <iframe
+                src={churchData.maps.embedUrl}
+                width='100%'
+                height='300'
+                style={{ border: 0, borderRadius: '8px' }}
+                allowFullScreen
+                loading='lazy'
+                referrerPolicy='no-referrer-when-downgrade'
+                title='Localização da Igreja Presbiteriana do Crato'
+              ></iframe>
             </div>
           </div>
 

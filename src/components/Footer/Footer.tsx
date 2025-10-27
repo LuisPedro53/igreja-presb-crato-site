@@ -8,6 +8,7 @@ import {
   FaEnvelope,
   FaClock,
 } from 'react-icons/fa';
+import churchData from '../../data';
 import './Footer.css';
 
 const Footer = () => {
@@ -26,7 +27,7 @@ const Footer = () => {
             </p>
             <div className='footer-social'>
               <a
-                href='https://facebook.com'
+                href={churchData.social.facebook}
                 target='_blank'
                 rel='noopener noreferrer'
                 aria-label='Facebook'
@@ -34,7 +35,7 @@ const Footer = () => {
                 <FaFacebook />
               </a>
               <a
-                href='https://instagram.com'
+                href={churchData.social.instagram}
                 target='_blank'
                 rel='noopener noreferrer'
                 aria-label='Instagram'
@@ -42,7 +43,7 @@ const Footer = () => {
                 <FaInstagram />
               </a>
               <a
-                href='https://youtube.com'
+                href={churchData.social.youtube}
                 target='_blank'
                 rel='noopener noreferrer'
                 aria-label='YouTube'
@@ -50,7 +51,7 @@ const Footer = () => {
                 <FaYoutube />
               </a>
               <a
-                href='https://wa.me/5588999999999'
+                href={churchData.social.whatsapp.pastor}
                 target='_blank'
                 rel='noopener noreferrer'
                 aria-label='WhatsApp'
@@ -67,19 +68,29 @@ const Footer = () => {
               <li>
                 <FaMapMarkerAlt />
                 <span>
-                  Rua Exemplo, 123 - Centro
+                  {churchData.address.street} -{' '}
+                  {churchData.address.neighborhood}
                   <br />
-                  Crato - CE, 63100-000
+                  {churchData.address.city} - {churchData.address.state},{' '}
+                  {churchData.address.zipCode}
                 </span>
               </li>
               <li>
                 <FaPhone />
-                <a href='tel:+5588999999999'>(88) 99999-9999</a>
+                <span>
+                  <a href={`tel:+${churchData.contact.pastor.phoneRaw}`}>
+                    {churchData.contact.pastor.phone}
+                  </a>
+                  {' | '}
+                  <a href={`tel:+${churchData.contact.vicePresident.phoneRaw}`}>
+                    {churchData.contact.vicePresident.phone}
+                  </a>
+                </span>
               </li>
               <li>
                 <FaEnvelope />
-                <a href='mailto:contato@ipcrato.com.br'>
-                  contato@ipcrato.com.br
+                <a href={`mailto:${churchData.contact.email}`}>
+                  {churchData.contact.email}
                 </a>
               </li>
             </ul>
@@ -92,22 +103,35 @@ const Footer = () => {
               <li>
                 <FaClock />
                 <div>
-                  <strong>Culto Dominical</strong>
-                  <span>Domingo - 09h e 19h</span>
+                  <strong>{churchData.schedule.sunday.morning.name}</strong>
+                  <span>
+                    Domingo - {churchData.schedule.sunday.morning.time}
+                  </span>
                 </div>
               </li>
               <li>
                 <FaClock />
                 <div>
-                  <strong>EBD</strong>
-                  <span>Domingo - 09h</span>
+                  <strong>{churchData.schedule.sunday.ebd.name}</strong>
+                  <span>Domingo - {churchData.schedule.sunday.ebd.time}</span>
                 </div>
               </li>
               <li>
                 <FaClock />
                 <div>
-                  <strong>Culto de Oração</strong>
-                  <span>Quarta-feira - 19h30</span>
+                  <strong>{churchData.schedule.sunday.evening.name}</strong>
+                  <span>
+                    Domingo - {churchData.schedule.sunday.evening.time}
+                  </span>
+                </div>
+              </li>
+              <li>
+                <FaClock />
+                <div>
+                  <strong>{churchData.schedule.wednesday.name}</strong>
+                  <span>
+                    Quarta-feira - {churchData.schedule.wednesday.time}
+                  </span>
                 </div>
               </li>
             </ul>

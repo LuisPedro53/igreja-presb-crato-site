@@ -1,5 +1,6 @@
 import { FaUniversity, FaQrcode, FaBarcode, FaHeart } from 'react-icons/fa';
 import SEO from '../components/SEO';
+import churchData from '../data';
 import './DizimosOfertasPage.css';
 
 const DizimosOfertasPage = () => {
@@ -72,19 +73,28 @@ const DizimosOfertasPage = () => {
               <div className='card-body'>
                 <div className='bank-info'>
                   <p>
-                    <strong>Banco:</strong> Banco do Brasil
+                    <strong>Banco:</strong> {churchData.banking.bank.name}
                   </p>
                   <p>
-                    <strong>Agência:</strong> 1234-5
+                    <strong>Código:</strong> {churchData.banking.bank.code}
                   </p>
                   <p>
-                    <strong>Conta Corrente:</strong> 12345-6
+                    <strong>CNPJ:</strong> {churchData.banking.pix.key}
                   </p>
                   <p>
-                    <strong>CNPJ:</strong> 00.000.000/0001-00
+                    <strong>Favorecido:</strong> {churchData.banking.pix.name}
                   </p>
-                  <p>
-                    <strong>Favorecido:</strong> Igreja Presbiteriana do Crato
+                  <p
+                    style={{
+                      marginTop: '15px',
+                      color: '#666',
+                      fontSize: '0.9rem',
+                    }}
+                  >
+                    <em>
+                      * Para informações de agência e conta, entre em contato
+                      diretamente com a tesouraria da igreja.
+                    </em>
                   </p>
                 </div>
               </div>
@@ -98,9 +108,21 @@ const DizimosOfertasPage = () => {
               </div>
               <div className='card-body'>
                 <div className='pix-info'>
-                  <p className='pix-label'>Chave PIX (CNPJ):</p>
-                  <p className='pix-key'>00.000.000/0001-00</p>
-                  <button className='btn-copy'>Copiar Chave PIX</button>
+                  <p className='pix-label'>
+                    Chave PIX ({churchData.banking.pix.type}):
+                  </p>
+                  <p className='pix-key'>{churchData.banking.pix.key}</p>
+                  <button
+                    className='btn-copy'
+                    onClick={() => {
+                      navigator.clipboard.writeText(
+                        churchData.banking.pix.keyRaw
+                      );
+                      alert('Chave PIX copiada com sucesso!');
+                    }}
+                  >
+                    Copiar Chave PIX
+                  </button>
 
                   <div className='qrcode-placeholder'>
                     <FaBarcode size={80} />
@@ -126,8 +148,8 @@ const DizimosOfertasPage = () => {
                   <p>
                     <strong>Domingos:</strong>
                   </p>
-                  <p>☀️ Manhã: 09:00h</p>
-                  <p>🌙 Noite: 19:00h</p>
+                  <p>☀️ Manhã: {churchData.schedule.sunday.morning.time}</p>
+                  <p>🌙 Noite: {churchData.schedule.sunday.evening.time}</p>
                 </div>
               </div>
             </div>

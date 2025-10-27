@@ -9,6 +9,7 @@ import {
   FaFacebook,
 } from 'react-icons/fa';
 import SEO from '../components/SEO';
+import churchData from '../data';
 import './ContatoPage.css';
 
 interface FormData {
@@ -243,37 +244,65 @@ const ContatoPage = () => {
                 <div className='info-card'>
                   <FaMapMarkerAlt className='info-icon' />
                   <h3>Endereço</h3>
-                  <p>Rua da Igreja, 123</p>
-                  <p>Centro - Crato/CE</p>
-                  <p>CEP: 63100-000</p>
+                  <p>{churchData.address.street}</p>
+                  <p>
+                    {churchData.address.neighborhood} -{' '}
+                    {churchData.address.city}/{churchData.address.state}
+                  </p>
+                  <p>CEP: {churchData.address.zipCode}</p>
                 </div>
 
                 <div className='info-card'>
                   <FaPhone className='info-icon' />
-                  <h3>Telefone</h3>
-                  <p>(88) 3521-0000</p>
-                  <p>Segunda a Sexta</p>
-                  <p>08:00 - 17:00</p>
+                  <h3>Contatos</h3>
+                  <p>
+                    <strong>{churchData.contact.pastor.title}:</strong>
+                  </p>
+                  <p>{churchData.contact.pastor.name}</p>
+                  <p>{churchData.contact.pastor.phone}</p>
+                  <p style={{ marginTop: '10px' }}>
+                    <strong>{churchData.contact.vicePresident.title}:</strong>
+                  </p>
+                  <p>{churchData.contact.vicePresident.name}</p>
+                  <p>{churchData.contact.vicePresident.phone}</p>
                 </div>
 
                 <div className='info-card'>
                   <FaEnvelope className='info-icon' />
                   <h3>E-mail</h3>
-                  <p>contato@ipcrato.com.br</p>
-                  <p>secretaria@ipcrato.com.br</p>
+                  <p>{churchData.contact.email}</p>
                 </div>
               </div>
 
               <div className='social-media'>
-                <h3>Redes Sociais</h3>
+                <h3>Contato Direto</h3>
                 <div className='social-icons'>
-                  <a href='#' className='social-link whatsapp'>
-                    <FaWhatsapp /> WhatsApp
+                  <a
+                    href={churchData.social.whatsapp.pastor}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='social-link whatsapp'
+                  >
+                    <FaWhatsapp /> WhatsApp - Pastor
                   </a>
-                  <a href='#' className='social-link instagram'>
+                  <a
+                    href={churchData.social.whatsapp.vicePresident}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='social-link whatsapp'
+                  >
+                    <FaWhatsapp /> WhatsApp - Vice-Presidente
+                  </a>
+                  <a
+                    href={churchData.social.instagram}
+                    className='social-link instagram'
+                  >
                     <FaInstagram /> Instagram
                   </a>
-                  <a href='#' className='social-link facebook'>
+                  <a
+                    href={churchData.social.facebook}
+                    className='social-link facebook'
+                  >
                     <FaFacebook /> Facebook
                   </a>
                 </div>
@@ -283,16 +312,16 @@ const ContatoPage = () => {
                 <h3>Horários de Funcionamento</h3>
                 <div className='hours-list'>
                   <div className='hours-item'>
-                    <strong>Segunda a Sexta:</strong>
-                    <span>08:00 - 12:00 / 14:00 - 17:00</span>
+                    <strong>{churchData.officeHours.weekdays.days}:</strong>
+                    <span>{churchData.officeHours.weekdays.hours}</span>
                   </div>
                   <div className='hours-item'>
-                    <strong>Sábado:</strong>
-                    <span>Fechado</span>
+                    <strong>{churchData.officeHours.saturday.days}:</strong>
+                    <span>{churchData.officeHours.saturday.status}</span>
                   </div>
                   <div className='hours-item'>
-                    <strong>Domingo:</strong>
-                    <span>Aberto para cultos</span>
+                    <strong>{churchData.officeHours.sunday.days}:</strong>
+                    <span>{churchData.officeHours.sunday.status}</span>
                   </div>
                 </div>
               </div>
@@ -306,7 +335,7 @@ const ContatoPage = () => {
             <h2>Nossa Localização</h2>
             <div className='map-container'>
               <iframe
-                src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.0659977066266!2d-39.41036872545462!3d-7.2333130710367515!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7a18483e50a145b%3A0x798c82bc28b8d461!2sIgreja%20Presbiteriana%20do%20Crato!5e0!3m2!1spt-BR!2sbr!4v1761572790476!5m2!1spt-BR!2sbr'
+                src={churchData.maps.embedUrl}
                 width='100%'
                 height='450'
                 style={{ border: 0 }}
