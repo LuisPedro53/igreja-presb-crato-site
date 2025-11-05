@@ -8,7 +8,6 @@
 
 .leadership-slider {
   position: relative;
-  padding: var(--spacing-2xl) 0;
 }
 
 .leadership-filters {
@@ -30,8 +29,9 @@
 }
 
 .filter-btn.active {
-  color: white;
-  border-color: transparent;
+  color: #fff;
+  background: #439173;
+  border-color: #439173;
   box-shadow: 0 6px 20px rgba(16, 185, 129, 0.12);
 }
 
