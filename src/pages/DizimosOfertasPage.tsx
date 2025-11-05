@@ -1,4 +1,4 @@
-import { FaUniversity, FaQrcode, FaBarcode, FaHeart } from 'react-icons/fa';
+import { FaUniversity, FaQrcode, FaHeart } from 'react-icons/fa';
 import SEO from '../components/SEO';
 import churchData from '../data';
 import './DizimosOfertasPage.css';
@@ -125,9 +125,14 @@ const DizimosOfertasPage = () => {
                   </button>
 
                   <div className='qrcode-placeholder'>
-                    <FaBarcode size={80} />
-                    <p>QR Code PIX</p>
-                    <small>(Em breve disponível)</small>
+                    {/* QR code image placed in public folder is served from root */}
+                    <img
+                      src={'/qrcode-pix.png'}
+                      alt='QR Code PIX - Igreja Presbiteriana do Crato'
+                      className='qrcode-image'
+                    />
+                    <p>Escaneie o QR Code para realizar o PIX</p>
+                    <small>Ou copie a chave PIX acima.</small>
                   </div>
                 </div>
               </div>

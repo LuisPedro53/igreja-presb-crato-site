@@ -249,11 +249,11 @@ const SobrePage = () => {
               <div className='cta-info-item'>
                 <strong>Domingos</strong>
                 <p>09:00 - Culto Matutino</p>
-                <p>19:00 - Culto Vespertino</p>
+                <p>18:30 - Culto Vespertino</p>
               </div>
               <div className='cta-info-item'>
                 <strong>Quartas-feiras</strong>
-                <p>19:30 - Culto de Oração</p>
+                <p>18:30 - Culto de Oração e Doutrina</p>
               </div>
             </div>
             <a href='/contato' className='cta-button'>

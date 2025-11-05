@@ -231,6 +231,16 @@
   color: var(--text);
 }
 
+.qrcode-image {
+  display: block;
+  max-width: 280px;
+  width: 80%;
+  height: auto;
+  margin: 0 auto 12px;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
 .qrcode-placeholder svg {
   opacity: 0.4;
   margin-bottom: 10px;
