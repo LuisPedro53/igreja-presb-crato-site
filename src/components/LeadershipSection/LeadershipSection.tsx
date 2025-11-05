@@ -139,7 +139,7 @@ const LeadershipSection = () => {
 
         if (!mounted || !rows || rows.length === 0) return;
 
-        // build new groups keyed by society acronym or mapped name
+        // build new groups strictly by your rules
         const newGroups: Record<string, Leader[]> = {
           conselho: [],
           uph: [],
@@ -147,72 +147,87 @@ const LeadershipSection = () => {
           ump: [],
         };
 
-        const mapSocietyKey = (s: any) => {
-          if (!s) return undefined;
-          const raw = (s.acronimo || s.nmsociedade || '')
-            .toString()
-            .toLowerCase()
-            .normalize('NFD')
-            .replace(/\p{Diacritic}/gu, '');
-
-          // common acronyms / words used in the DB that should map to our keys
-          if (raw.includes('saf')) return 'saf';
-          if (raw.includes('uph')) return 'uph';
-          if (raw.includes('ump')) return 'ump';
-
-          // broader heuristics for UMP (União de Moços / moços / jovens)
-          if (
-            raw.includes('unia') ||
-            raw.includes('uniao') ||
-            raw.includes('moc') ||
-            raw.includes('jov')
-          )
-            return 'ump';
-
-          // conselho matches
-          if (raw.includes('consel') || raw.includes('conselho'))
-            return 'conselho';
-
-          // try exact matches just in case
-          if (raw === 'conselho') return 'conselho';
-          if (raw === 'saf') return 'saf';
-          if (raw === 'uph') return 'uph';
-          if (raw === 'ump') return 'ump';
-
-          return undefined;
-        };
-
         for (const r of rows) {
           const pessoa = (r as any).pessoa;
           const sociedade = (r as any).sociedade;
-          const key =
-            mapSocietyKey(sociedade) || (r as any).cdsociedade || undefined;
-          if (!pessoa || !key) continue;
+          if (!pessoa) continue;
 
-          // cargo that belongs to the pessoa->sociedade relationship (pessoatiposociedade.nmcargo)
-          const relCargo = (r as any).pessoatiposociedade
-            ? (r as any).pessoatiposociedade.nmcargo
-            : (r as any).cargo || (r as any).funcao || (r as any).role || '';
+          if (sociedade && sociedade.cdsociedade === 5) {
+            newGroups['conselho'].push({
+              id: pessoa.cdpessoa ?? Math.floor(Math.random() * 100000),
+              name: pessoa.nmpessoa ?? 'Nome',
+              role:
+                (r as any).pessoatiposociedade?.nmcargo ||
+                (r as any).cargo ||
+                '',
+              description: '',
+              society: 'conselho',
+              imagePlaceholder: pessoa.fotopessoa ?? undefined,
+              photo: pessoa.fotopessoa ?? undefined,
+              cdtipopessoa: pessoa.cdtipopessoa ?? undefined,
+            });
+          }
 
-          const pessoaRole =
-            (pessoa && (pessoa.role || pessoa.cargo || pessoa.cdtipopessoa)) ||
-            '';
+          // UPH: cdsociedade = 2
+          if (sociedade && sociedade.cdsociedade === 2) {
+            newGroups['uph'].push({
+              id: pessoa.cdpessoa ?? Math.floor(Math.random() * 100000),
+              name: pessoa.nmpessoa ?? 'Nome',
+              role:
+                (r as any).pessoatiposociedade?.nmcargo ||
+                (r as any).cargo ||
+                '',
+              description: '',
+              society: 'uph',
+              imagePlaceholder: pessoa.fotopessoa ?? undefined,
+              photo: pessoa.fotopessoa ?? undefined,
+              cdtipopessoa: pessoa.cdtipopessoa ?? undefined,
+            });
+          }
 
-          const roleStr =
-            relCargo || (typeof pessoaRole === 'string' && pessoaRole) || '';
+          // SAF: cdsociedade = 1
+          if (sociedade && sociedade.cdsociedade === 1) {
+            newGroups['saf'].push({
+              id: pessoa.cdpessoa ?? Math.floor(Math.random() * 100000),
+              name: pessoa.nmpessoa ?? 'Nome',
+              role:
+                (r as any).pessoatiposociedade?.nmcargo ||
+                (r as any).cargo ||
+                '',
+              description: '',
+              society: 'saf',
+              imagePlaceholder: pessoa.fotopessoa ?? undefined,
+              photo: pessoa.fotopessoa ?? undefined,
+              cdtipopessoa: pessoa.cdtipopessoa ?? undefined,
+            });
+          }
 
-          const leader: Leader = {
-            id: pessoa.cdpessoa ?? Math.floor(Math.random() * 100000),
-            name: pessoa.nmpessoa ?? 'Nome',
-            role: roleStr || '',
-            description: '',
-            society: key as any,
-            imagePlaceholder: pessoa.fotopessoa ?? undefined,
-            photo: pessoa.fotopessoa ?? undefined,
-            cdtipopessoa: pessoa.cdtipopessoa ?? undefined,
-          };
+          // UMP: cdsociedade = 3
+          if (sociedade && sociedade.cdsociedade === 3) {
+            newGroups['ump'].push({
+              id: pessoa.cdpessoa ?? Math.floor(Math.random() * 100000),
+              name: pessoa.nmpessoa ?? 'Nome',
+              role:
+                (r as any).pessoatiposociedade?.nmcargo ||
+                (r as any).cargo ||
+                '',
+              description: '',
+              society: 'ump',
+              imagePlaceholder: pessoa.fotopessoa ?? undefined,
+              photo: pessoa.fotopessoa ?? undefined,
+              cdtipopessoa: pessoa.cdtipopessoa ?? undefined,
+            });
+          }
+        }
 
-          if (newGroups[key as string]) newGroups[key as string].push(leader);
+        // Deduplica por pessoa em cada grupo
+        for (const soc of Object.keys(newGroups)) {
+          const seen = new Set();
+          newGroups[soc] = newGroups[soc].filter((l) => {
+            if (seen.has(l.id)) return false;
+            seen.add(l.id);
+            return true;
+          });
         }
 
         // debug: count how many leaders per society we found
