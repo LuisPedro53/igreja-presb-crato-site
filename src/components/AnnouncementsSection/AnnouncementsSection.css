@@ -63,6 +63,28 @@
   width: 100%;
 }
 
+/* Wrapper for real images: provides a neutral background so transparent PNGs are visible */
+.announcement-image-wrap {
+  flex: 1;
+  max-width: 500px;
+  height: 350px;
+  background: #ffffff; /* solid white to contrast transparent images */
+  border-radius: var(--border-radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  width: 100%;
+}
+
+.announcement-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* contain to preserve transparent edges and show full logo */
+  display: block;
+}
+
 .announcement-content {
   flex: 1;
   max-width: 600px;

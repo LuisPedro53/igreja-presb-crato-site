@@ -1,16 +1,80 @@
+import { useEffect, useState } from 'react';
 import { FaCalendarAlt, FaClock, FaMapMarkerAlt } from 'react-icons/fa';
 import './WeeklyBulletinSection.css';
+import { getEventos } from '../../services/events';
+import type { EventoDB } from '../../services/events';
 
 const WeeklyBulletinSection = () => {
-  // Dados do próximo evento (futuramente virá de uma API ou CMS)
-  const nextEvent = {
-    title: 'Culto de Ação de Graças',
-    date: '05 de Novembro de 2025',
-    time: '19:00',
-    location: 'Templo Principal',
-    description:
-      'Junte-se a nós em um culto especial de ação de graças. Momento de louvor, gratidão e comunhão.',
-    imagePlaceholder: 'IMAGEM DO EVENTO',
+  const [nextEvent, setNextEvent] = useState<{
+    title: string;
+    date: string;
+    time: string;
+    location: string;
+    description: string;
+    image?: string | null;
+  } | null>(null);
+
+  useEffect(() => {
+    let mounted = true;
+
+    const loadNext = async () => {
+      try {
+        const data = await getEventos(false);
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+
+        const upcoming = (data || [])
+          .filter((e: EventoDB) => {
+            if (!e.dtevento) return false;
+            const d = new Date(e.dtevento + 'T00:00:00');
+            return d >= today;
+          })
+          .sort((a: EventoDB, b: EventoDB) => {
+            const da = new Date((a.dtevento || '') + 'T00:00:00').getTime();
+            const db = new Date((b.dtevento || '') + 'T00:00:00').getTime();
+            return da - db;
+          });
+
+        if (mounted && upcoming.length > 0) {
+          const e = upcoming[0];
+          setNextEvent({
+            title: e.nmevento || 'Evento',
+            date: e.dtevento || '',
+            time: e.horaevento || '',
+            location: e.enderecoevento || '',
+            description: e.descricao || '',
+            image: e.imagemevento || null,
+          });
+        }
+      } catch (err) {
+        console.error('Erro ao carregar próximo evento:', err);
+      }
+    };
+
+    loadNext();
+    return () => {
+      mounted = false;
+    };
+  }, []);
+
+  if (!nextEvent) return null; // esconder a seção se não houver próximo evento
+
+  const formatDate = (dateString: string) => {
+    if (!dateString) return '';
+    const date = new Date(dateString + 'T00:00:00');
+    return date.toLocaleDateString('pt-BR', {
+      day: '2-digit',
+      month: 'long',
+      year: 'numeric',
+    });
+  };
+
+  const formatTime = (timeString: string) => {
+    if (!timeString) return '';
+    const parts = timeString.split(':');
+    if (parts.length >= 2)
+      return `${parts[0].padStart(2, '0')}:${parts[1].padStart(2, '0')}`;
+    return timeString;
   };
 
   return (
@@ -23,7 +87,18 @@ const WeeklyBulletinSection = () => {
 
         <div className='bulletin-content'>
           <div className='bulletin-image-placeholder'>
-            {nextEvent.imagePlaceholder}
+            {nextEvent.image ? (
+              <div className='bulletin-image-wrap'>
+                <img
+                  src={nextEvent.image}
+                  alt={nextEvent.title}
+                  className='bulletin-image'
+                  loading='lazy'
+                />
+              </div>
+            ) : (
+              'IMAGEM DO EVENTO'
+            )}
           </div>
 
           <div className='bulletin-info'>
@@ -35,7 +110,7 @@ const WeeklyBulletinSection = () => {
                 <FaCalendarAlt />
                 <div>
                   <strong>Data</strong>
-                  <span>{nextEvent.date}</span>
+                  <span>{formatDate(nextEvent.date)}</span>
                 </div>
               </div>
 
@@ -43,7 +118,7 @@ const WeeklyBulletinSection = () => {
                 <FaClock />
                 <div>
                   <strong>Horário</strong>
-                  <span>{nextEvent.time}</span>
+                  <span>{formatTime(nextEvent.time)}</span>
                 </div>
               </div>
 

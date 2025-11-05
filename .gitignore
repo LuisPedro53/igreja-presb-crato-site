@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 
 CHECKLIST-PROJETO.md
+
+# Local env
+.env
