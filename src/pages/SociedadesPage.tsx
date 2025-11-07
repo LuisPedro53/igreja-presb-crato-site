@@ -155,6 +155,17 @@ const SociedadesPage = () => {
                     </ul>
                   </div>
                 </div>
+                {society.acronym !== 'SI' && (
+                  <div style={{ textAlign: 'center', margin: '24px 0 0 0' }}>
+                    <a
+                      href={`/?lideranca=${society.acronym.toLowerCase()}`}
+                      className='btn-primary'
+                      style={{ minWidth: 180 }}
+                    >
+                      Conheça nossa liderança
+                    </a>
+                  </div>
+                )}
               </div>
             ))}
           </div>

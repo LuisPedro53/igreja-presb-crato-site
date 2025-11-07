@@ -6,7 +6,6 @@ import {
   FaPaperPlane,
   FaWhatsapp,
   FaInstagram,
-  FaFacebook,
 } from 'react-icons/fa';
 import SEO from '../components/SEO';
 import churchData from '../data';

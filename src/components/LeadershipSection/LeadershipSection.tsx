@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import './LeadershipSection.css';
 
@@ -105,6 +106,8 @@ const fallbackLeaders: Leader[] = [
 ];
 
 const LeadershipSection = () => {
+  const location = useLocation();
+  const sectionRef = useRef<HTMLDivElement>(null);
   const itemsPerPage = 3;
 
   const societies: Array<'conselho' | 'uph' | 'saf' | 'ump'> = [
@@ -125,6 +128,22 @@ const LeadershipSection = () => {
   const [selectedFilter, setSelectedFilter] = useState<
     'todos' | (typeof societies)[number]
   >('todos');
+
+  // Detecta filtro via query string (?lideranca=saf|uph|ump|conselho)
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const filtro = params.get('lideranca');
+    if (filtro && ['saf', 'uph', 'ump', 'conselho'].includes(filtro)) {
+      setSelectedFilter(filtro as any);
+      // Scroll para a seção de liderança
+      setTimeout(() => {
+        sectionRef.current?.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
+      }, 200);
+    }
+  }, [location.search]);
   const [currentSocIndex, setCurrentSocIndex] = useState(0);
   // pagination removed for specific-filter view
 
@@ -340,7 +359,7 @@ const LeadershipSection = () => {
   };
 
   return (
-    <section className='leadership-section section'>
+    <section className='leadership-section section' ref={sectionRef}>
       <div className='container'>
         <h2 className='section-title'>Nossa Liderança</h2>
         <p className='section-subtitle'>
