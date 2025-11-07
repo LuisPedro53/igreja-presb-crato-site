@@ -89,7 +89,6 @@ interface Social {
     vicePresident: string;
   };
   instagram: string;
-  facebook: string;
   youtube: string;
 }
 
@@ -228,9 +227,8 @@ export const churchData: ChurchData = {
       pastor: 'https://wa.me/5588996308584',
       vicePresident: 'https://wa.me/5588999604943',
     },
-    instagram: '#',
-    facebook: '#',
-    youtube: '#',
+    instagram: 'https://www.instagram.com/ipbcrato/',
+    youtube: 'https://www.youtube.com/@IgrejaPresbiterianadoCrato',
   },
 
   // Sociedades Internas

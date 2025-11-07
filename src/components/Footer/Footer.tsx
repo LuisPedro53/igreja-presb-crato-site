@@ -1,5 +1,4 @@
 import {
-  FaFacebook,
   FaInstagram,
   FaYoutube,
   FaWhatsapp,
@@ -26,14 +25,7 @@ const Footer = () => {
               comunidade e proclamando o evangelho de Jesus Cristo.
             </p>
             <div className='footer-social'>
-              <a
-                href={churchData.social.facebook}
-                target='_blank'
-                rel='noopener noreferrer'
-                aria-label='Facebook'
-              >
-                <FaFacebook />
-              </a>
+              {/* Facebook removido */}
               <a
                 href={churchData.social.instagram}
                 target='_blank'

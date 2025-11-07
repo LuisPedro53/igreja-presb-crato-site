@@ -299,12 +299,6 @@ const ContatoPage = () => {
                   >
                     <FaInstagram /> Instagram
                   </a>
-                  <a
-                    href={churchData.social.facebook}
-                    className='social-link facebook'
-                  >
-                    <FaFacebook /> Facebook
-                  </a>
                 </div>
               </div>
 

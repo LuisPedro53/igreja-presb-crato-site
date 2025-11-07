@@ -276,16 +276,6 @@
   opacity: 0.9;
 }
 
-.social-link.facebook {
-  background: #1877f2;
-  color: white;
-}
-
-.social-link.facebook:hover {
-  background: #0c63d4;
-  transform: translateX(5px);
-}
-
 /* Office Hours */
 .office-hours {
   background: white;
