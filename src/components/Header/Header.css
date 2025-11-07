@@ -11,16 +11,18 @@
 .header-content {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding: var(--spacing-md) 0;
   position: relative;
+  flex-wrap: wrap;
+  gap: 0.4rem;
 }
 
 /* Logo */
 .header-logo a {
   display: flex;
   align-items: center;
-  gap: var(--spacing-md);
+
   text-decoration: none;
   transition: opacity var(--transition-base);
 }
@@ -155,6 +157,9 @@
     display: block;
   }
 
+  .header-content {
+    justify-content: space-between;
+  }
   .header-nav {
     position: fixed;
     top: 0;
