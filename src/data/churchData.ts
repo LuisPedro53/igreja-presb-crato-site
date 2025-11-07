@@ -183,7 +183,7 @@ export const churchData: ChurchData = {
       },
     },
     wednesday: {
-      name: 'Culto de Oração',
+      name: 'Culto de Oração e Doutrina',
       time: '18:30',
       description: 'Momento de oração e intercessão',
     },
